@@ -1,0 +1,25 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Git files
+.git/
+.gitignore
+
+# VS Code
+.vscode/
+
+# Environment files
+.env
+
+# Screenshots
+screenshots/
+
+# macOS / Windows
+.DS_Store
+Thumbs.db
