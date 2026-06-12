@@ -1,0 +1,44 @@
+services:
+  web:
+    # Buld image using the Dockerfile in the current directory
+    build: .
+
+    # Name the container
+    container_name: visitor-counter
+
+    # Map host port 5000 to container port 5000
+    ports:
+      - "5000:5000"
+
+    # Start Redis before Flask
+    depends_on:
+      - redis
+
+    # Add Redis environment variables
+    environment:
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      
+  redis:
+    # Pull officail Redis image from Docker Hub
+    image: redis:7-alpine
+
+    # Name the Redis container
+    container_name: redis
+
+    # Persist Redis data
+    volumes:
+      - redis-data:/data
+
+    # Enable Redis persistence
+    command: redis-server --appendonly yes
+
+    # Adding health checks for redis
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+volumes:
+  redis-data:
