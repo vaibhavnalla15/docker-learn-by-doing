@@ -2,7 +2,7 @@
 
 ## 📌 Project Overview
 
-In this capstone, I deployed a Containerized Flask Visitor Counter application backed by Redis onto AWS.
+In this capstone, I deployed a Dockerized Flask Visitor Counter application backed by Redis onto AWS.
 
 The application was first containerized locally, pushed to Amazon Elastic Container Registry (ECR), and then deployed on an Amazon EC2 instance using Docker Compose.
 
@@ -123,7 +123,7 @@ Amazon ECR
 Provisioned an EC2 instance using:
 
 * Amazon Linux 2023
-* t3.micro (Free Tier)
+* t2.micro (Free Tier)
 * SSH access
 * HTTP access
 
@@ -210,6 +210,23 @@ docker compose up -d
 
 The visitor count remained intact.
 
+---
+
+## 📸 Screenshots
+
+### ECR Image Successfully Pushed
+
+The following screenshot shows the Docker image successfully pushed to Amazon ECR.
+
+![ecr-image](./screenshots/ecr-image-pushed.png)
+
+---
+
+### Visitor Counter Running on EC2
+
+The following screenshot demonstrates the Flask Visitor Counter application running successfully after deployment on Amazon EC2.
+
+![visitor-counter](./screenshots/ecr-ec2-visitor-counter.png)
 ---
 
 ## 🧠 Production Issue Encountered
